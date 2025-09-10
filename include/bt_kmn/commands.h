@@ -1,9 +1,12 @@
 #pragma once
 
+typedef void (*CommandMethod)(const char *params);
+
 typedef struct Command {
   char *command;
-  void (*method)(const char *params);
+  CommandMethod method;
 } Command;
+
 #define CONCAT(a, b) a##b
 
 // clang-format off

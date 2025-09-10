@@ -1,4 +1,4 @@
-#include "../include/commands.h"
+#include "bt_kmn/commands.h"
 #include <stdio.h>
 #include <string.h>
 

@@ -24,4 +24,4 @@ typedef struct Command {
   void command_name(const char *params)
 // clang-format on
 
-void run_command(const char *command);
+void run_command(const char *command, const char *params);

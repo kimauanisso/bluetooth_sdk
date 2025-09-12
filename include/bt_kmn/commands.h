@@ -16,7 +16,7 @@ typedef struct Command {
   static const Command CONCAT(__bt_command_, command_name) = {    \
       .command = #command_name,                                   \
       .method = command_method                                    \
-  }
+  };
 
 #define BT_COMMAND_DEFINE(command_name)                           \
   static void command_name(const char *params);                   \
@@ -24,4 +24,4 @@ typedef struct Command {
   void command_name(const char *params)
 // clang-format on
 
-void run_command(const char *command, const char *params);
+void __run_command(char bt_input[]);

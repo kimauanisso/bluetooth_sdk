@@ -1,8 +1,15 @@
 #include "bt_kmn/bluetooth.h"
+#include "bt_kmn/commands.h"
 
 #include "stdbool.h"
 #include "hardware/gpio.h"
+#include "hardware/irq.h"
+#include "hardware/uart.h"
 #include "pico/time.h"
+#include "stdbool.h"
+
+#define MAX_COMMAND_SIZE 128
+uint8_t bt_buffer[MAX_COMMAND_SIZE];
 
 static BluetoothConfig _config;
 
@@ -27,9 +34,24 @@ void Bluetooth_AtCommand(const char* command){
     uart_puts(_config.uart, command);
     uart_puts(_config.uart, "\r\n");
 
-    sleep_ms(1000);
+void Bluetooth_SendMessage(const char *message) {
+  uart_puts(_config.uart, message);
 }
 
-void Bluetooth_SendMessage(const char* message){
-    uart_puts(_config.uart, message);
+void Bluetooth_ReadMessage() {
+  int count = 0;
+  while (uart_is_readable(_config.uart)) {
+    uint8_t ch = uart_getc(_config.uart);
+    bt_buffer[count++] = ch;
+    if (count > MAX_COMMAND_SIZE) {
+      Bluetooth_SendMessage("Max command length reached\n");
+      return;
+    }
+  }
+  if (count == 0) {
+    return;
+  }
+  bt_buffer[count] = '\0';
+  Bluetooth_SendMessage("Running command...\n");
+  __run_command(bt_buffer);
 }

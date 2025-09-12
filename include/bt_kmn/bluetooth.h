@@ -13,4 +13,5 @@ void Bluetooth_InterruptInit(irq_handler_t handler);
 
 void Bluetooth_AtCommand(const char* command);
 
-void Bluetooth_SendMessage(const char* message);
+void Bluetooth_SendMessage(const char *message);
+void Bluetooth_ReadMessage();

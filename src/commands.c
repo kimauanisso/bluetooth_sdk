@@ -5,7 +5,7 @@
 extern const Command __start_BT_COMMANDS[];
 extern const Command __stop_BT_COMMANDS[];
 
-#define COMMAND_DELIMITER '='
+#define COMMAND_DELIMITER "="
 
 void parse_command(char *bt_input, char **bt_command, char **bt_params){
   *bt_command = strtok(bt_input, COMMAND_DELIMITER);

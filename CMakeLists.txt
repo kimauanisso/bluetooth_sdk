@@ -47,16 +47,16 @@ target_link_libraries(bt_kmn
 )
 
 # --- Executável de teste ---
-add_executable(bt_kmn_test
-    src/test.c
-)
+#add_executable(bt_kmn_test
+#    src/test.c
+#)
 
-target_link_libraries(bt_kmn_test
-    bt_kmn
-    pico_stdlib
-)
+#target_link_libraries(bt_kmn_test
+#    bt_kmn
+#    pico_stdlib
+#)
 
-pico_enable_stdio_uart(bt_kmn_test 1)
-pico_enable_stdio_usb(bt_kmn_test 1)
-
-pico_add_extra_outputs(bt_kmn_test)
+#pico_enable_stdio_uart(bt_kmn_test 1)
+#pico_enable_stdio_usb(bt_kmn_test 1)
+#
+#pico_add_extra_outputs(bt_kmn_test)

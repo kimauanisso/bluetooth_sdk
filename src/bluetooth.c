@@ -40,12 +40,16 @@ void Bluetooth_SendMessage(const char *message) {
 
 void Bluetooth_ReadMessage() {
   int count = 0;
-  while (uart_is_readable(_config.uart)) {
-    uint8_t ch = uart_getc(_config.uart);
-    bt_buffer[count++] = ch;
-    if (count > MAX_COMMAND_SIZE) {
-      Bluetooth_SendMessage("Max command length reached\n");
-      return;
+  if (uart_is_readable(_config.uart)) {
+    while (count < MAX_COMMAND_SIZE) {
+      uint8_t ch = uart_getc(_config.uart);
+      if (ch == '\0' || ch == '\r' || ch == '\n')
+        break;
+      bt_buffer[count++] = ch;
+      if (count > MAX_COMMAND_SIZE) {
+        Bluetooth_SendMessage("Max command length reached\n");
+        return;
+      }
     }
   }
   if (count == 0) {

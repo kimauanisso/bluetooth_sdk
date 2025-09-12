@@ -23,7 +23,7 @@ CommandMethod get_command(const char *command) {
   return NULL;
 }
 
-void run_command(char bt_input[]) {
+void __run_command(char bt_input[]) {
   char *command, *params;
   parse_command(bt_input, &command, &params);
 

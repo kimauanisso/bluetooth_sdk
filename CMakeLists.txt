@@ -20,7 +20,7 @@ set(CMAKE_EXPORT_COMPILE_COMMANDS ON)
 # --- Pico SDK ---
 set(PICO_BOARD pico)
 set(PICO_PLATFORM rp2040)
-set(PICO_SDK_PATH ${CMAKE_CURRENT_LIST_DIR}/pico-sdk)
+#set(PICO_SDK_PATH ${CMAKE_CURRENT_LIST_DIR}/pico-sdk)
 
 include(${PICO_SDK_PATH}/external/pico_sdk_import.cmake)
 

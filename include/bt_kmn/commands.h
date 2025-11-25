@@ -1,5 +1,9 @@
 #pragma once
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef void (*CommandMethod)(const char *params);
 
 typedef struct Command {
@@ -25,3 +29,7 @@ typedef struct Command {
 // clang-format on
 
 void __run_command(char bt_input[]);
+
+#ifdef __cplusplus
+}
+#endif

@@ -572,26 +572,10 @@ Contributions are welcome! Please:
 
 ---
 
-## 📄 License
-
-> **[SPECIFY LICENSE]** - MIT / GPL / Apache 2.0 / etc.
-
----
-
-## 👤 Author
-
-Part of the **mini_agv** project by Pedro Bauke
-
-- GitHub: [@ptBauke1](https://github.com/ptBauke1)
-- Repository: [mini_agv](https://github.com/ptBauke1/mini_agv)
-
----
-
 ## 📚 See Also
 
 - [Raspberry Pi Pico SDK Documentation](https://www.raspberrypi.com/documentation/pico-sdk/)
 - [UART Hardware Documentation](https://datasheets.raspberrypi.com/pico/raspberry-pi-pico-c-sdk.pdf)
-- [Bluetooth Module Datasheets](https://components101.com/wireless/hc-05-bluetooth-module)
 
 ---
 

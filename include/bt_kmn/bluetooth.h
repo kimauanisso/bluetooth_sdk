@@ -3,6 +3,10 @@
 #include "hardware/irq.h"
 #include "hardware/uart.h"
 
+#ifdef __cplusplus
+extern "C" {
+#endif
+
 typedef struct BluetoothConfig {
   uart_inst_t *uart;
   uint baudrate;
@@ -17,3 +21,7 @@ void Bluetooth_AtCommand(const char *command);
 
 void Bluetooth_SendMessage(const char *message);
 void Bluetooth_ReadMessage();
+
+#ifdef __cplusplus
+}
+#endif
